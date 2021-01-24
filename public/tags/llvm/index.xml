@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>LLVM - 标签 - fjqisba的个人博客</title>
+        <link>https://fjqisba.github.io/docs/tags/llvm/</link>
+        <description>LLVM - 标签 - fjqisba的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Thu, 07 Jan 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/docs/tags/llvm/" rel="self" type="application/rss+xml" /><item>
+    <title>LLVM前端Clang</title>
+    <link>https://fjqisba.github.io/docs/posts/llvm%E5%89%8D%E7%AB%AFclang/</link>
+    <pubDate>Thu, 07 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/docs/posts/llvm%E5%89%8D%E7%AB%AFclang/</guid>
+    <description><![CDATA[Clang命令行参数文档:Clang command line argument reference 生成LLVM IR 使用以下命令将源代码转换成LLVM IR文本。 clang -emit-llvm -S test.c -o test.ll 交叉编译 基本选项是定义目标]]></description>
+</item><item>
+    <title>在Windows下搭建LLVM环境</title>
+    <link>https://fjqisba.github.io/docs/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83/</link>
+    <pubDate>Wed, 06 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/docs/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83/</guid>
+    <description><![CDATA[LLVM是一个非常有名的开源编译器框架，由C++编写。 介绍:LLVM - 维基百科，自由的百科全书 (wikipedia.org) Github项目地址:llvm-projec]]></description>
+</item></channel>
+</rss>
