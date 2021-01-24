@@ -45,7 +45,7 @@ git config --global user.email fjqisba@sohu.com
 想要删掉仓库中所有的commit，得到一个新的仓库且当前代码不变，可以使用下面的命令
 
 ```bash
-git checkout --orphan latest_branch
+git checkout --orphan newBranch
 git add -A
 git commit -am "commit message"
 git branch -D master

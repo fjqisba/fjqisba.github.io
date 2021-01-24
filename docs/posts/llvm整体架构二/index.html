@@ -5,29 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>未知的项目 - fjqisba的个人博客</title><meta name="Description" content="个人笔记本"><meta property="og:title" content="未知的项目" />
-<meta property="og:description" content="Emscripten Github项目地址:Emscripten Emscripten 是 Mozilla 的 Alon Zakai 开发的一个独特 LLVM 后端，可以将任意LLVM中间码编译成JavaScript。 LLVM负" />
+        <title>LLVM整体架构(二) - fjqisba的个人博客</title><meta name="Description" content="个人笔记本"><meta property="og:title" content="LLVM整体架构(二)" />
+<meta property="og:description" content="前端代码生成LLVM IR 使用以下命令将源代码转换成LLVM IR文本。 clang -emit-llvm -S test.c -o test.ll 前端代码生成可执行程序 基本选项是定义目标体系结构，语法为-ta" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fjqisba.github.io/posts/%E6%9C%AA%E7%9F%A5%E7%9A%84%E9%A1%B9%E7%9B%AE/" />
-<meta property="article:published_time" content="2020-12-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-12-30T00:00:00+00:00" />
+<meta property="og:url" content="https://fjqisba.github.io/posts/llvm%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E4%BA%8C/" />
+<meta property="article:published_time" content="2021-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-07T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="未知的项目"/>
-<meta name="twitter:description" content="Emscripten Github项目地址:Emscripten Emscripten 是 Mozilla 的 Alon Zakai 开发的一个独特 LLVM 后端，可以将任意LLVM中间码编译成JavaScript。 LLVM负"/>
+<meta name="twitter:title" content="LLVM整体架构(二)"/>
+<meta name="twitter:description" content="前端代码生成LLVM IR 使用以下命令将源代码转换成LLVM IR文本。 clang -emit-llvm -S test.c -o test.ll 前端代码生成可执行程序 基本选项是定义目标体系结构，语法为-ta"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/%E6%9C%AA%E7%9F%A5%E7%9A%84%E9%A1%B9%E7%9B%AE/" /><link rel="prev" href="https://fjqisba.github.io/posts/x86%E6%8C%87%E4%BB%A4%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" /><link rel="next" href="https://fjqisba.github.io/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/llvm%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E4%BA%8C/" /><link rel="prev" href="https://fjqisba.github.io/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83%E4%B8%80/" /><link rel="next" href="https://fjqisba.github.io/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "未知的项目",
+        "headline": "LLVM整体架构(二)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/fjqisba.github.io\/posts\/%E6%9C%AA%E7%9F%A5%E7%9A%84%E9%A1%B9%E7%9B%AE\/"
-        },"genre": "posts","keywords": "Github","wordcount":  269 ,
-        "url": "https:\/\/fjqisba.github.io\/posts\/%E6%9C%AA%E7%9F%A5%E7%9A%84%E9%A1%B9%E7%9B%AE\/","datePublished": "2020-12-30T00:00:00+00:00","dateModified": "2020-12-30T00:00:00+00:00","publisher": {
+            "@id": "https:\/\/fjqisba.github.io\/posts\/llvm%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E4%BA%8C\/"
+        },"genre": "posts","keywords": "LLVM, Clang","wordcount":  508 ,
+        "url": "https:\/\/fjqisba.github.io\/posts\/llvm%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E4%BA%8C\/","datePublished": "2021-01-07T00:00:00+00:00","dateModified": "2021-01-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
                 "@type": "Person",
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">未知的项目</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9D%82%E6%96%87/"><i class="far fa-folder fa-fw"></i>杂文</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-30">2020-12-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 269 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">LLVM整体架构(二)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/llvm/"><i class="far fa-folder fa-fw"></i>LLVM</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-07">2021-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 508 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -114,21 +114,37 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#emscripten">Emscripten</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="emscripten">Emscripten</h3>
-<p>Github项目地址:<a href="https://github.com/emscripten-core/emscripten" target="_blank" rel="noopener noreffer">Emscripten</a></p>
-<p>Emscripten 是 Mozilla 的 Alon Zakai 开发的一个独特 LLVM 后端，可以将任意LLVM中间码编译成JavaScript。</p>
-<p>LLVM负责解析C/C++代码，输出初步解析后的中间代码，后端Emscripten负责将中间代码转换为JavaScript代码，作者设计了一套转换语法，想办法在JavaScript中创建出C/C++的特性，但很明显并不是所有的C/C++的代码都能进行完美转换。</p>
-<p>为了提高速度，生成出来的JS代码被优化成了<strong>WebAssembly</strong>，这是一种类似于二进制的文件，这样可以在js中编写一套解释执行框架去执行这些字节码。</p>
-</div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><h4 id="前端代码生成llvm-ir">前端代码生成LLVM IR</h4>
+<p>使用以下命令将源代码转换成LLVM IR文本。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang -emit-llvm -S test.c -o test.ll
+</code></pre></div><h4 id="前端代码生成可执行程序">前端代码生成可执行程序</h4>
+<p>基本选项是定义目标体系结构，语法为<code>-target &lt;triple&gt;</code></p>
+<p>triple的格式一般为<code>&lt;arch&gt;&lt;sub&gt;-&lt;vendor&gt;-&lt;sys&gt;-&lt;abi&gt;</code>，其中:</p>
+<ul>
+<li><code>arch</code> = <code>x86_64</code>、<code>i386</code>、<code>arm</code>、<code>thumb</code>、<code>mips</code>等</li>
+<li><code>sub</code> = 与<code>arch</code>对应，例如在ARM上有 <code>v5</code>、<code>v6m</code>、<code>v7a</code>、<code>v7m</code>等。</li>
+<li><code>vendor</code> = <code>none</code>、<code>linux</code>、<code>win32</code>、<code>darwin</code>、<code>cuda</code>等</li>
+<li><code>abi</code> = <code>eabi</code>、<code>gnu</code>、<code>android</code>、<code>macho</code>、<code>elf</code>等</li>
+</ul>
+<p>简单举个例子就清楚了，例如对于某个test.c文件，我们想要将它编译成不同平台下的可执行程序。</p>
+<p>如果想要编译成Windows下的64位可执行程序，使用以下命令行即可</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang test.c -target x86_64-pc-windows-msvc
+</code></pre></div><p>在上面这个例子中，<code>arch</code>就是x86_64，<code>sub</code>则没有，<code>vendor</code>是pc，<code>sys</code>是windows，<code>abi</code>是msvc。</p>
+<p>另外如果我们想要编译成Windows下的32位可执行程序，使用以下命令行即可</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang test.c -target i386-pc-windows-msvc
+</code></pre></div><h4 id="llvm-ir生成可执行程序">LLVM IR生成可执行程序</h4>
+<p>使用clang可以直接将LLVM IR编译成可执行文件，命令如下</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang test.ll -o test.exe
+</code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2020-12-30</span>
+                <span>更新于 2021-01-07</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -141,18 +157,18 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/github/">Github</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/llvm/">LLVM</a>,&nbsp;<a href="/tags/clang/">Clang</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/x86%E6%8C%87%E4%BB%A4%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" class="prev" rel="prev" title="X86指令进阶学习"><i class="fas fa-angle-left fa-fw"></i>X86指令进阶学习</a>
-            <a href="/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83/" class="next" rel="next" title="在Windows下搭建LLVM环境">在Windows下搭建LLVM环境<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83%E4%B8%80/" class="prev" rel="prev" title="在Windows下搭建LLVM环境(一)"><i class="fas fa-angle-left fa-fw"></i>在Windows下搭建LLVM环境(一)</a>
+            <a href="/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" class="next" rel="next" title="产品试用">产品试用<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">fjqisba</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">fjqisba</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.80.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fjqisba</a></span>&nbsp;|&nbsp;<span class="license">MIT</span></div>
         </div>
     </footer></div>

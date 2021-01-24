@@ -5,29 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>LLVM前端Clang - fjqisba的个人博客</title><meta name="Description" content="个人笔记本"><meta property="og:title" content="LLVM前端Clang" />
-<meta property="og:description" content="Clang命令行参数文档:Clang command line argument reference 生成LLVM IR 使用以下命令将源代码转换成LLVM IR文本。 clang -emit-llvm -S test.c -o test.ll 交叉编译 基本选项是定义目标" />
+        <title>LLVM IR简介(三) - fjqisba的个人博客</title><meta name="Description" content="个人笔记本"><meta property="og:title" content="LLVM IR简介(三)" />
+<meta property="og:description" content="LLVM的核心是中间端表达式，即LLVM IR(Intermediate Representation)，这是一种类似汇编的底层语言。 中间端表达式有三种存在形态: 一种文本形" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fjqisba.github.io/posts/llvm%E5%89%8D%E7%AB%AFclang/" />
-<meta property="article:published_time" content="2021-01-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-01-07T00:00:00+00:00" />
+<meta property="og:url" content="https://fjqisba.github.io/posts/llvm-ir%E7%AE%80%E4%BB%8B%E4%B8%89/" />
+<meta property="article:published_time" content="2021-01-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-09T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="LLVM前端Clang"/>
-<meta name="twitter:description" content="Clang命令行参数文档:Clang command line argument reference 生成LLVM IR 使用以下命令将源代码转换成LLVM IR文本。 clang -emit-llvm -S test.c -o test.ll 交叉编译 基本选项是定义目标"/>
+<meta name="twitter:title" content="LLVM IR简介(三)"/>
+<meta name="twitter:description" content="LLVM的核心是中间端表达式，即LLVM IR(Intermediate Representation)，这是一种类似汇编的底层语言。 中间端表达式有三种存在形态: 一种文本形"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/llvm%E5%89%8D%E7%AB%AFclang/" /><link rel="prev" href="https://fjqisba.github.io/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83/" /><link rel="next" href="https://fjqisba.github.io/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/llvm-ir%E7%AE%80%E4%BB%8B%E4%B8%89/" /><link rel="prev" href="https://fjqisba.github.io/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" /><link rel="next" href="https://fjqisba.github.io/posts/hugo%E6%90%AD%E5%BB%BAloveit%E5%8D%9A%E5%AE%A2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "LLVM前端Clang",
+        "headline": "LLVM IR简介(三)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/fjqisba.github.io\/posts\/llvm%E5%89%8D%E7%AB%AFclang\/"
-        },"genre": "posts","keywords": "LLVM, Clang","wordcount":  474 ,
-        "url": "https:\/\/fjqisba.github.io\/posts\/llvm%E5%89%8D%E7%AB%AFclang\/","datePublished": "2021-01-07T00:00:00+00:00","dateModified": "2021-01-07T00:00:00+00:00","publisher": {
+            "@id": "https:\/\/fjqisba.github.io\/posts\/llvm-ir%E7%AE%80%E4%BB%8B%E4%B8%89\/"
+        },"genre": "posts","keywords": "LLVM","wordcount":  321 ,
+        "url": "https:\/\/fjqisba.github.io\/posts\/llvm-ir%E7%AE%80%E4%BB%8B%E4%B8%89\/","datePublished": "2021-01-09T00:00:00+00:00","dateModified": "2021-01-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
                 "@type": "Person",
@@ -101,9 +101,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">LLVM前端Clang</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">LLVM IR简介(三)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/llvm/"><i class="far fa-folder fa-fw"></i>LLVM</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-07">2021-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 474 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-09">2021-01-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 321 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -119,30 +119,23 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Clang命令行参数文档:<a href="https://clang.llvm.org/docs/ClangCommandLineReference.html" target="_blank" rel="noopener noreffer">Clang command line argument reference</a></p>
-<h4 id="生成llvm-ir">生成LLVM IR</h4>
-<p>使用以下命令将源代码转换成LLVM IR文本。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang -emit-llvm -S test.c -o test.ll
-</code></pre></div><h4 id="交叉编译">交叉编译</h4>
-<p>基本选项是定义目标体系结构，语法为<code>-target &lt;triple&gt;</code></p>
-<p>triple的格式一般为<code>&lt;arch&gt;&lt;sub&gt;-&lt;vendor&gt;-&lt;sys&gt;-&lt;abi&gt;</code>，其中:</p>
-<ul>
-<li><code>arch</code> = <code>x86_64</code>、<code>i386</code>、<code>arm</code>、<code>thumb</code>、<code>mips</code>等</li>
-<li><code>sub</code> = 与<code>arch</code>对应，例如在ARM上有 <code>v5</code>、<code>v6m</code>、<code>v7a</code>、<code>v7m</code>等。</li>
-<li><code>vendor</code> = <code>none</code>、<code>linux</code>、<code>win32</code>、<code>darwin</code>、<code>cuda</code>等</li>
-<li><code>abi</code> = <code>eabi</code>、<code>gnu</code>、<code>android</code>、<code>macho</code>、<code>elf</code>等</li>
-</ul>
-<p>简单举个例子就清楚了，例如对于某个test.c文件，我们想要将它编译成不同平台下的可执行程序。</p>
-<p>如果想要编译成Windows下的64位可执行程序，使用以下命令行即可</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang test.c -target x86_64-pc-windows-msvc
-</code></pre></div><p>在上面这个例子中，<code>arch</code>就是x86_64，<code>sub</code>则没有，<code>vendor</code>是pc，<code>sys</code>是windows，<code>abi</code>是msvc。</p>
-<p>另外如果我们想要编译成Windows下的32位可执行程序，使用以下命令行即可</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">clang test.c -target i386-pc-windows-msvc
-</code></pre></div></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><p>LLVM的核心是中间端表达式，即LLVM IR(Intermediate Representation)，这是一种类似汇编的底层语言。</p>
+<p>中间端表达式有三种存在形态:</p>
+<p>一种文本形态，可以直接被人类阅读;</p>
+<p>一种内存对象形态，存在于运行中的C++代码中;</p>
+<p>一种文件形态，为序列化的bitcode。</p>
+<p>官方手册地址:<a href="https://llvm.org/docs/LangRef.html" target="_blank" rel="noopener noreffer">LLVM Language Reference Manual — LLVM 12 documentation</a></p>
+<h4 id="摘要">摘要</h4>
+<p>LLVM 语言是基于Static Single Assignment (SSA)策略的语言。LLMV IR的语言特点是：类型安全、 低级别操作、灵活且具有清晰表示<strong>所有</strong>高级语言的能力。它作为一个统一的代码表示，贯穿LLVM编译的各个阶段。</p>
+<h4 id="标识符">标识符</h4>
+<p>LLVM标识符有2个基本类型：全局的和局部的。全局的标识符（函数，全局变量）以<code>@</code>字符开头。局部的标识符（注册名称，类型）以<code>％</code>字符开头</p>
+<h4 id="注释">注释</h4>
+<p>注释行以<code>;</code>符号开头。</p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-01-07</span>
+                <span>更新于 2021-01-09</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -155,18 +148,18 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/llvm/">LLVM</a>,&nbsp;<a href="/tags/clang/">Clang</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/llvm/">LLVM</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAllvm%E7%8E%AF%E5%A2%83/" class="prev" rel="prev" title="在Windows下搭建LLVM环境"><i class="fas fa-angle-left fa-fw"></i>在Windows下搭建LLVM环境</a>
-            <a href="/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" class="next" rel="next" title="产品试用">产品试用<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" class="prev" rel="prev" title="产品试用"><i class="fas fa-angle-left fa-fw"></i>产品试用</a>
+            <a href="/posts/hugo%E6%90%AD%E5%BB%BAloveit%E5%8D%9A%E5%AE%A2/" class="next" rel="next" title="Hugo搭建LoveIt博客">Hugo搭建LoveIt博客<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">fjqisba</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">fjqisba</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.80.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fjqisba</a></span>&nbsp;|&nbsp;<span class="license">MIT</span></div>
         </div>
     </footer></div>

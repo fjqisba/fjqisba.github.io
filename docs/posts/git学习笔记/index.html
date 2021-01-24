@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fjqisba.github.io\/posts\/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/"
-        },"genre": "posts","keywords": "笔记, Git","wordcount":  170 ,
+        },"genre": "posts","keywords": "笔记, Git","wordcount":  288 ,
         "url": "https:\/\/fjqisba.github.io\/posts\/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/","datePublished": "2020-08-23T00:00:00+00:00","dateModified": "2020-08-23T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Git学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9D%82%E6%96%87/"><i class="far fa-folder fa-fw"></i>杂文</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-23">2020-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 170 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-23">2020-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 288 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -115,6 +115,8 @@
     <li>
       <ul>
         <li><a href="#克隆含有子模块的项目">克隆含有子模块的项目</a></li>
+        <li><a href="#配置git信息">配置Git信息</a></li>
+        <li><a href="#清空所有的commit">清空所有的commit</a></li>
       </ul>
     </li>
   </ul>
@@ -128,6 +130,18 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git submodule init
 </code></pre></div><p>2.更新项目，抓取子模块内容。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git submodule update
+</code></pre></div><h3 id="配置git信息">配置Git信息</h3>
+<p>第一次使用git的时候需要配置一下用户名和邮箱</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git config --global user.name fjqisba
+git config --global user.email fjqisba@sohu.com
+</code></pre></div><h3 id="清空所有的commit">清空所有的commit</h3>
+<p>想要删掉仓库中所有的commit，得到一个新的仓库且当前代码不变，可以使用下面的命令</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git checkout --orphan newBranch
+git add -A
+git commit -am <span class="s2">&#34;commit message&#34;</span>
+git branch -D master
+git branch -m master
+git push -f origin master
 </code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -156,7 +170,7 @@
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">fjqisba</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">fjqisba</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.80.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fjqisba</a></span>&nbsp;|&nbsp;<span class="license">MIT</span></div>
         </div>
     </footer></div>
