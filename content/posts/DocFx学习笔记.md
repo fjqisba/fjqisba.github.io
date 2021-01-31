@@ -2,7 +2,7 @@
 title: "DocFx学习笔记"
 date: 2020-09-13
 tags: ["笔记","DocFx"]
-categories: ["杂文"]
+categories: ["Github碎片"]
 ---
 
 1.DocFx是微软的一款开源的文档生成工具，下载地址如下:https://github.com/dotnet/docfx/releases

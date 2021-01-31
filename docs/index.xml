@@ -4,15 +4,43 @@
         <link>https://fjqisba.github.io/</link>
         <description>个人笔记本</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
-            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Sun, 24 Jan 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Sun, 31 Jan 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://fjqisba.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>信息碎片化时代的思考</title>
+    <link>https://fjqisba.github.io/posts/%E4%BF%A1%E6%81%AF%E7%A2%8E%E7%89%87%E5%8C%96%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</link>
+    <pubDate>Sun, 31 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E4%BF%A1%E6%81%AF%E7%A2%8E%E7%89%87%E5%8C%96%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</guid>
+    <description><![CDATA[在这个信息碎片化时代，感觉到以个人的力量越来越难抗衡那些信息的洪流了，尽管其中的大部分信息其实并没有什么意义。 像B站、微博、知乎、豆瓣、小黑]]></description>
+</item><item>
+    <title>Graphviz</title>
+    <link>https://fjqisba.github.io/posts/graphviz/</link>
+    <pubDate>Sat, 30 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/graphviz/</guid>
+    <description><![CDATA[Github项目地址:graphviz Graphviz 是一款由 AT&amp;T Research 和 Lucent Bell 实验室开源的可视化图形工具，用于绘制DOT语言脚本描述的图形。它可以很方便的用来绘]]></description>
+</item><item>
+    <title>NetworKit</title>
+    <link>https://fjqisba.github.io/posts/networkit/</link>
+    <pubDate>Sat, 30 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/networkit/</guid>
+    <description><![CDATA[Github项目地址:NetworKit NetworKit是用一个用于高性能网络分析的开源工具包，其目标是为了分析上千或者上亿条边的大型网络]]></description>
+</item><item>
+    <title>DLL2C试用</title>
+    <link>https://fjqisba.github.io/posts/dll2c%E8%AF%95%E7%94%A8/</link>
+    <pubDate>Sun, 24 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/dll2c%E8%AF%95%E7%94%A8/</guid>
+    <description><![CDATA[今天看到一款产品，据说能将DLL或者EXE转换为可编译的C/C++代码，官网地址如下: https://www.dll-decompiler.cn/dll2c.html 官方介绍如下: DLL to C 是一个能够把所有DLL文件和部分]]></description>
+</item><item>
     <title>Hugo搭建LoveIt博客</title>
     <link>https://fjqisba.github.io/posts/hugo%E6%90%AD%E5%BB%BAloveit%E5%8D%9A%E5%AE%A2/</link>
     <pubDate>Sun, 24 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://fjqisba.github.io/posts/hugo%E6%90%AD%E5%BB%BAloveit%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[系统又又又重装了，又又又忘了怎么配置博客，所以做笔记是有多重要。。。。 Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快]]></description>
+    <description><![CDATA[系统又又又重装了，又又又忘了怎么配置博客，所以做笔记是有多么重要。。。。 Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、]]></description>
 </item><item>
     <title>LLVM IR简介(三)</title>
     <link>https://fjqisba.github.io/posts/llvm-ir%E7%AE%80%E4%BB%8B%E4%B8%89/</link>
@@ -21,12 +49,12 @@
     <guid>https://fjqisba.github.io/posts/llvm-ir%E7%AE%80%E4%BB%8B%E4%B8%89/</guid>
     <description><![CDATA[LLVM的核心是中间端表达式，即LLVM IR(Intermediate Representation)，这是一种类似汇编的底层语言。 中间端表达式有三种存在形态: 一种文本形]]></description>
 </item><item>
-    <title>产品试用</title>
-    <link>https://fjqisba.github.io/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/</link>
+    <title>PDF阅读器试用</title>
+    <link>https://fjqisba.github.io/posts/pdf%E9%98%85%E8%AF%BB%E5%99%A8%E8%AF%95%E7%94%A8/</link>
     <pubDate>Fri, 08 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://fjqisba.github.io/posts/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/</guid>
-    <description><![CDATA[PDF阅读器试用: 福昕PDF阅读器:感觉比较专业，标签页结构清晰，支持多种形式保存标签，功能较为齐全。 Sumatra PDF:一款开源的PDF阅读器，只能]]></description>
+    <guid>https://fjqisba.github.io/posts/pdf%E9%98%85%E8%AF%BB%E5%99%A8%E8%AF%95%E7%94%A8/</guid>
+    <description><![CDATA[福昕PDF阅读器:感觉比较专业，标签页结构清晰，支持多种形式保存标签，功能较为齐全。 Sumatra PDF:一款开源的PDF阅读器，只能满足基本的阅读功能]]></description>
 </item><item>
     <title>LLVM整体架构(二)</title>
     <link>https://fjqisba.github.io/posts/llvm%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E4%BA%8C/</link>
@@ -48,33 +76,5 @@
     <author>作者</author>
     <guid>https://fjqisba.github.io/posts/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</guid>
     <description><![CDATA[Crypto++ 官网:https://www.cryptopp.com/ 也被称为CryptoPP,libcrypto++和libcryptopp，是免费开]]></description>
-</item><item>
-    <title>X86指令进阶学习</title>
-    <link>https://fjqisba.github.io/posts/x86%E6%8C%87%E4%BB%A4%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</link>
-    <pubDate>Sun, 27 Dec 2020 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/posts/x86%E6%8C%87%E4%BB%A4%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</guid>
-    <description><![CDATA[虽然说我天天和Windows X86平台下的汇编指令打交道，大部分指令都已经掌握了，但直到有一天需要对这些指令进行逐个解析处理的时候，才发现自]]></description>
-</item><item>
-    <title>MASM学习</title>
-    <link>https://fjqisba.github.io/posts/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/</link>
-    <pubDate>Wed, 23 Dec 2020 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/posts/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/</guid>
-    <description><![CDATA[16位、32位、64位指令 80x86系列处理器有一个逐渐发展的过程。 8086、8088、80286是16位结构处理器，支持16位指令系统。 常]]></description>
-</item><item>
-    <title>STL库学习</title>
-    <link>https://fjqisba.github.io/posts/stl%E5%BA%93%E5%AD%A6%E4%B9%A0/</link>
-    <pubDate>Thu, 24 Sep 2020 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/posts/stl%E5%BA%93%E5%AD%A6%E4%B9%A0/</guid>
-    <description><![CDATA[C++存在非常令人头疼的STL模板库，如果不去了解它的话，还原C++代码又会特别吃力。。。 不同的VC版本或者Debug\Release版，S]]></description>
-</item><item>
-    <title>对CEF程序进行爬虫</title>
-    <link>https://fjqisba.github.io/posts/%E5%AF%B9cef%E7%A8%8B%E5%BA%8F%E8%BF%9B%E8%A1%8C%E7%88%AC%E8%99%AB/</link>
-    <pubDate>Sun, 20 Sep 2020 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/posts/%E5%AF%B9cef%E7%A8%8B%E5%BA%8F%E8%BF%9B%E8%A1%8C%E7%88%AC%E8%99%AB/</guid>
-    <description><![CDATA[想标题想了很久，最后感觉还是用这个标题比较合适。 问题情景是这样的： 有一个较为古老的CEF程序，需要对程序里面的内容进行爬取，获取数据。 众所周]]></description>
 </item></channel>
 </rss>

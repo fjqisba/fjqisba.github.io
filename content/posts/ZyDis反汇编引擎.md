@@ -2,7 +2,7 @@
 title: "ZyDis反汇编引擎"
 date: 2020-08-16
 tags: ["反汇编引擎"]
-categories: ["杂文"]
+categories: ["Github碎片"]
 ---
 Zydis是一个开源的反汇编引擎，项目地址如下:
 
