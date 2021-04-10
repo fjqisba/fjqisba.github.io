@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>产品试用 - 分类 - fjqisba的个人博客</title>
+        <link>127.0.0.1/categories/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/</link>
+        <description>产品试用 - 分类 - fjqisba的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Fri, 12 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="127.0.0.1/categories/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>下载工具</title>
+    <link>127.0.0.1/posts/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Fri, 12 Mar 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>127.0.0.1/posts/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[用来下载百度云盘里面的东西，速度的话还算是能满足日常使用需求的，不知道能坚持多久. https://kinhdown.kinh.cc/]]></description>
+</item><item>
+    <title>DLL2C试用</title>
+    <link>127.0.0.1/posts/dll2c%E8%AF%95%E7%94%A8/</link>
+    <pubDate>Sun, 24 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>127.0.0.1/posts/dll2c%E8%AF%95%E7%94%A8/</guid>
+    <description><![CDATA[今天看到一款产品，据说能将DLL或者EXE转换为可编译的C/C++代码，官网地址如下: https://www.dll-decompiler.cn/dll2c.html 官方介绍如下: DLL to C 是一个能够把所有DLL文件和部分]]></description>
+</item><item>
+    <title>PDF阅读器试用</title>
+    <link>127.0.0.1/posts/pdf%E9%98%85%E8%AF%BB%E5%99%A8%E8%AF%95%E7%94%A8/</link>
+    <pubDate>Fri, 08 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>127.0.0.1/posts/pdf%E9%98%85%E8%AF%BB%E5%99%A8%E8%AF%95%E7%94%A8/</guid>
+    <description><![CDATA[福昕PDF阅读器:感觉比较专业，标签页结构清晰，支持多种形式保存标签，功能较为齐全。 Sumatra PDF:一款开源的PDF阅读器，只能满足基本的阅读功能]]></description>
+</item></channel>
+</rss>

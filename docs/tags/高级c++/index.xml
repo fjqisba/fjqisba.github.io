@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>高级C&#43;&#43; - 标签 - fjqisba的个人博客</title>
+        <link>https://fjqisba.github.io/tags/%E9%AB%98%E7%BA%A7c&#43;&#43;/</link>
+        <description>高级C&#43;&#43; - 标签 - fjqisba的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Sat, 06 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/tags/%E9%AB%98%E7%BA%A7c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43;限制堆和栈的对象空间分配</title>
+    <link>https://fjqisba.github.io/posts/c&#43;&#43;%E9%99%90%E5%88%B6%E5%A0%86%E5%92%8C%E6%A0%88%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D/</link>
+    <pubDate>Sat, 06 Mar 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/c&#43;&#43;%E9%99%90%E5%88%B6%E5%A0%86%E5%92%8C%E6%A0%88%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D/</guid>
+    <description><![CDATA[一般情况下，编写一个类，可以在栈或者堆中分配空间。 比如，这样编写代码，就是在栈中建立类对象 int main() { A Obj; } 这句代码对于编译器来说可以转换为近似等]]></description>
+</item></channel>
+</rss>
