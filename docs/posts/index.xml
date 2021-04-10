@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
             <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>IDA 7.5支持中文的办法</title>
-    <link>https://fjqisba.github.io/posts/%E6%9D%82%E6%96%87/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/</link>
+    <link>https://fjqisba.github.io/posts/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/</link>
     <pubDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://fjqisba.github.io/posts/%E6%9D%82%E6%96%87/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/</guid>
+    <guid>https://fjqisba.github.io/posts/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/ida7.5%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E5%8A%9E%E6%B3%95/</guid>
     <description><![CDATA[解除函数名称的限制 默认配置情况下我们是不能将函数名称修改为中文的，会提示bad character，意思就是包含非法字符，那么怎样让中文成为合]]></description>
 </item><item>
     <title>CSV解析引擎</title>
