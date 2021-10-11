@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CFG - 标签 - fjqisba的个人博客</title>
+        <link>https://fjqisba.github.io/tags/cfg/</link>
+        <description>CFG - 标签 - fjqisba的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Wed, 12 May 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/tags/cfg/" rel="self" type="application/rss+xml" /><item>
+    <title>BasicBlock生成算法</title>
+    <link>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Wed, 12 May 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[BasicBlock基本概念 定义: 只有一个入口指令，一个出口指令 执行时从入口指令进入，从出口指令退出 基本块的一个典型特点是：只要基本块中第一]]></description>
+</item></channel>
+</rss>
