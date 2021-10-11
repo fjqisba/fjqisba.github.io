@@ -101,6 +101,8 @@ categories: ["杂文"]
 这是我的第一篇文章
 ```
 
+##### 4.调试
+
 添加完成后，执行下面的命令开启动态预览博客。
 
 ```bash
@@ -108,6 +110,21 @@ hugo server
 ```
 
 执行完成后，命令会返回一个本地网址，我们可以通过该网址查看博客内容。
+
+##### 5.发布
+
+使用以下命令行，生成html内容
+
+```bash
+rm -f -r docs
+hugo -b "https://fjqisba.github.io" -d docs
+git add .
+git status
+git commit -m "content update"
+git push
+```
+
+这个生成的docs文件夹其实就是Github Pages要展示的内容了，因此在项目配置中的Settings -> Pages -> Source这一栏，我们需要将目录/root修改为/docs。
 
 ### 遇到的坑
 

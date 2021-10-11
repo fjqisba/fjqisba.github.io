@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fjqisba.github.io\/posts\/hugo%E6%90%AD%E5%BB%BAloveit%E5%8D%9A%E5%AE%A2\/"
-        },"genre": "posts","keywords": "Hugo, 博客","wordcount":  792 ,
+        },"genre": "posts","keywords": "Hugo, 博客","wordcount":  923 ,
         "url": "https:\/\/fjqisba.github.io\/posts\/hugo%E6%90%AD%E5%BB%BAloveit%E5%8D%9A%E5%AE%A2\/","datePublished": "2021-01-24T00:00:00+00:00","dateModified": "2021-01-24T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hugo搭建LoveIt博客</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9D%82%E6%96%87/"><i class="far fa-folder fa-fw"></i>杂文</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-24">2021-01-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 792 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-24">2021-01-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 923 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -196,9 +196,19 @@ categories: [&#34;杂文&#34;]
 ---
 
 这是我的第一篇文章
-</code></pre></div><p>添加完成后，执行下面的命令开启动态预览博客。</p>
+</code></pre></div><h5 id="4调试">4.调试</h5>
+<p>添加完成后，执行下面的命令开启动态预览博客。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo server
 </code></pre></div><p>执行完成后，命令会返回一个本地网址，我们可以通过该网址查看博客内容。</p>
+<h5 id="5发布">5.发布</h5>
+<p>使用以下命令行，生成html内容</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">rm -f -r docs
+hugo -b <span class="s2">&#34;https://fjqisba.github.io&#34;</span> -d docs
+git add .
+git status
+git commit -m <span class="s2">&#34;content update&#34;</span>
+git push
+</code></pre></div><p>这个生成的docs文件夹其实就是Github Pages要展示的内容了，因此在项目配置中的Settings -&gt; Pages -&gt; Source这一栏，我们需要将目录/root修改为/docs。</p>
 <h3 id="遇到的坑">遇到的坑</h3>
 <ul>
 <li>markdown文件在网页的路径中不能出现小数点之类的特殊字符。</li>
