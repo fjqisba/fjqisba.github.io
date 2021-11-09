@@ -4,10 +4,31 @@
         <link>https://fjqisba.github.io/categories/</link>
         <description>Categories - 分类 - fjqisba的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
-            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Mon, 11 Oct 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Tue, 09 Nov 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Go语言</title>
+    <link>https://fjqisba.github.io/categories/go%E8%AF%AD%E8%A8%80/</link>
+    <pubDate>Tue, 09 Nov 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/categories/go%E8%AF%AD%E8%A8%80/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>x64Dbg</title>
+    <link>https://fjqisba.github.io/categories/x64dbg/</link>
+    <pubDate>Sat, 30 Oct 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/categories/x64dbg/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>安全攻防</title>
+    <link>https://fjqisba.github.io/categories/%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2/</link>
+    <pubDate>Wed, 27 Oct 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/categories/%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>C&#43;&#43;开发</title>
     <link>https://fjqisba.github.io/categories/c&#43;&#43;%E5%BC%80%E5%8F%91/</link>
-    <pubDate>Mon, 11 Oct 2021 00:00:00 &#43;0000</pubDate>
+    <pubDate>Thu, 14 Oct 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://fjqisba.github.io/categories/c&#43;&#43;%E5%BC%80%E5%8F%91/</guid>
     <description><![CDATA[]]></description>
@@ -52,27 +73,6 @@
     <pubDate>Thu, 15 Jul 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://fjqisba.github.io/categories/qt/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>产品试用</title>
-    <link>https://fjqisba.github.io/categories/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/</link>
-    <pubDate>Wed, 30 Jun 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/categories/%E4%BA%A7%E5%93%81%E8%AF%95%E7%94%A8/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>CTF</title>
-    <link>https://fjqisba.github.io/categories/ctf/</link>
-    <pubDate>Tue, 11 May 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/categories/ctf/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>心情文学</title>
-    <link>https://fjqisba.github.io/categories/%E5%BF%83%E6%83%85%E6%96%87%E5%AD%A6/</link>
-    <pubDate>Sun, 31 Jan 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://fjqisba.github.io/categories/%E5%BF%83%E6%83%85%E6%96%87%E5%AD%A6/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

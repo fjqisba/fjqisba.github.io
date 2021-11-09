@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fjqisba.github.io\/posts\/%E5%8F%8D%E7%BC%96%E8%AF%91\/ghidra%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8\/"
-        },"genre": "posts","keywords": "Ghidra","wordcount":  996 ,
+        },"genre": "posts","keywords": "Ghidra","wordcount":  1347 ,
         "url": "https:\/\/fjqisba.github.io\/posts\/%E5%8F%8D%E7%BC%96%E8%AF%91\/ghidra%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8\/","datePublished": "2021-08-09T00:00:00+00:00","dateModified": "2021-08-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Ghidra反编译器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%8F%8D%E7%BC%96%E8%AF%91/"><i class="far fa-folder fa-fw"></i>反编译</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-09">2021-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 996 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-09">2021-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1347 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -231,8 +231,21 @@
 </tr>
 </tbody>
 </table>
+<h4 id="address">Address</h4>
+<p>用来表示地址，主要是用来存储offset这一个字段。</p>
 <h4 id="p-code">P-Code</h4>
 <p>p-code 可以理解为一种新的指令集，能够适用于任何处理器的语言。</p>
+<h4 id="结构体解读">结构体解读</h4>
+<p>1、Varnode</p>
+<p>变量节点，可以理解为pCode指令对应的变量，一个变量节点可以用来表示任何数据，包括寄存器、堆栈、内存、常量。</p>
+<p>不同变量节点通过Address来进行标记。</p>
+<p>2、FuncData</p>
+<p>函数可以理解为Ghidra重要的反编译基本单位，此结构体包含与函数反编译有关的一切。</p>
+<p>包含控制流、数据流、数据类型信息、跳转表、参数，其中比较重要的几个函数有:</p>
+<p>startProcessing()，开始对函数进行基本的分析。</p>
+<p>followFlow()，跟踪代码流程，并根据遇到的每句汇编指令生成原始的PCode。</p>
+<p>printBlockTree()，打印出控制流结构体。</p>
+<p>numCalls()，getCallSpecs()，可用来遍历函数内的call指令信息。</p>
 <h4 id="源码解读">源码解读</h4>
 <p>1、initializeProcess函数(DecompInterface.java) -&gt;</p>
 <p>2、decompProcess.registerProgram函数</p>
