@@ -5,6 +5,8 @@ tags: ["笔记","Git"]
 categories: ["杂文"]
 ---
 
+# 项目管理
+
 ### 克隆含有子模块的项目
 
 当一个git项目含有子模块(submodule)时，直接克隆下来的子模块目录里面是空的。
@@ -58,4 +60,8 @@ git push -f origin master
 ```bash
 git config --global core.autocrlf false
 ```
+
+# 搜索功能
+
+1、搜索star数目超过1w的项目，stars:>10000
 
