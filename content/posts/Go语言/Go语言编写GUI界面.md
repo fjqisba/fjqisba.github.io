@@ -1,7 +1,7 @@
 ---
 title: "Go语言编写GUI界面"
 date: 2021-12-26
-tags: ["Go","GUI]
+tags: ["Go","GUI"]
 categories: ["Go语言"]
 ---
 

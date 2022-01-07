@@ -1,7 +1,7 @@
 ---
 title: "Go语言编写DLL"
 date: 2021-12-27
-tags: ["Go","DLL]
+tags: ["Go","DLL"]
 categories: ["Go语言"]
 ---
 

@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>fjqisba的个人博客</title>
+        <link>https://fjqisba.github.io/</link>
+        <description>个人笔记本</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Fri, 31 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="https://fjqisba.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>paypal开通支付</title>
+    <link>https://fjqisba.github.io/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/paypal%E5%BC%80%E9%80%9A%E6%94%AF%E4%BB%98/</link>
+    <pubDate>Fri, 31 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/paypal%E5%BC%80%E9%80%9A%E6%94%AF%E4%BB%98/</guid>
+    <description><![CDATA[paypal开通支付 paypal是国外的一套支付服务系统，基于web来实现。 官方文档:https://developer.paypal.co]]></description>
+</item><item>
+    <title>域名解析</title>
+    <link>https://fjqisba.github.io/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/</link>
+    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/</guid>
+    <description><![CDATA[域名解析 域名起源 一开始，大家都使用IP地址互相访问，但是这样不方便记忆，域名因此出现了。我们访问www.baidu.com的时候，首先会请求]]></description>
+</item><item>
+    <title>Go语言编写DLL</title>
+    <link>https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll/</link>
+    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll/</guid>
+    <description><![CDATA[Go语言编写DLL 测试代码如下 package main import &#34;C&#34; import( &#34;fmt&#34; ) //export Test func Test(){ fmt.Println(&#34;hello&#34;) } func main(){ } 关键点如下: 1、还是必须要有package main和main函数。 2、导出的函]]></description>
+</item><item>
+    <title>Go语言编写GUI界面</title>
+    <link>https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99gui%E7%95%8C%E9%9D%A2/</link>
+    <pubDate>Sun, 26 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99gui%E7%95%8C%E9%9D%A2/</guid>
+    <description><![CDATA[界面库介绍 1、fyne 项目地址:https://github.com/fyne-io/fyne 自写的的界面库，语法和qt那种一样，体积较大，]]></description>
+</item><item>
+    <title>Mysql学习</title>
+    <link>https://fjqisba.github.io/posts/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%AD%A6%E4%B9%A0/</link>
+    <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%AD%A6%E4%B9%A0/</guid>
+    <description><![CDATA[Mysql学习 Mysql的安装 Windows平台下: 需要安装Mysql Community Server，下载地址:https://dev.mysql.com/]]></description>
+</item><item>
+    <title>ClickHouse学习</title>
+    <link>https://fjqisba.github.io/posts/%E6%95%B0%E6%8D%AE%E5%BA%93/clickhouse%E5%AD%A6%E4%B9%A0/</link>
+    <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E6%95%B0%E6%8D%AE%E5%BA%93/clickhouse%E5%AD%A6%E4%B9%A0/</guid>
+    <description><![CDATA[ClickHouse ClickHouse是俄罗斯Yandex于2016年开源的一个高性能的SQL数据库。我对这个数据库的看法是，如果你的数据只涉及到读和写，没]]></description>
+</item><item>
+    <title>C#加壳工具</title>
+    <link>https://fjqisba.github.io/posts/csharp/csharp%E5%8A%A0%E5%A3%B3%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/csharp/csharp%E5%8A%A0%E5%A3%B3%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[众所周知，自动有了Dnspy这类的反编译工具，C#写的程序如果不加壳，那就差不多把源码送给别人。 而一款商业化的工具，自然是需要加壳工具保护的]]></description>
+</item><item>
+    <title>VSCODE学习</title>
+    <link>https://fjqisba.github.io/posts/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/vscode%E5%AD%A6%E4%B9%A0/</link>
+    <pubDate>Tue, 14 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/vscode%E5%AD%A6%E4%B9%A0/</guid>
+    <description><![CDATA[VS Code学习 VS Code介绍:全能的现代化开发环境，非常适合全栈开发工程师。 下载地址:https://code.visualstudio.c]]></description>
+</item><item>
+    <title>SmartDec源码阅读</title>
+    <link>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/smartdec%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</link>
+    <pubDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/smartdec%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</guid>
+    <description><![CDATA[SmartDec反编译器项目地址:https://github.com/smartdec/smartdec 记录 反编译逻辑入口:void Decompilation::work()]]></description>
+</item><item>
+    <title>反编译项目介绍</title>
+    <link>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/%E5%8F%8D%E7%BC%96%E8%AF%91%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</link>
+    <pubDate>Sun, 05 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/%E5%8F%8D%E7%BC%96%E8%AF%91%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</guid>
+    <description><![CDATA[SmartDec 项目地址:https://github.com/smartdec/smartdec C++编写的反编译器，需要Qt和Boost库，支持PE和]]></description>
+</item></channel>
+</rss>

@@ -1,13 +1,13 @@
 ---
 title: "ClickHouse学习"
-date: 2021-12-23
-tags: ["Mysql"]
+date: 2021-12-16
+tags: ["ClickHouse"]
 categories: ["数据库"]
 ---
 
 # ClickHouse
 
-ClickHouse是俄罗斯Yandex于2016年开源的一个高性能的SQL数据库。
+ClickHouse是俄罗斯Yandex于2016年开源的一个高性能的SQL数据库。我对这个数据库的看法是，如果你的数据只涉及到读和写，没有增删改，那么你永远可以信任ClickHouse。
 
 ### 简介
 
