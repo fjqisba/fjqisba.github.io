@@ -69,7 +69,18 @@ export GOPROXY=https://goproxy.io,direct
 ∨ Util
 	⊙string.go
 	⊙time.go
+∨ Model
+	⊙Student.go
+	⊙UrlElement.go
    go.mod
    main.go
 ```
+
+TrdPackage目录放一些三方库。
+
+Utils放一些库函数，比如字符串拼接，时间转换之类的小型函数。
+
+Model目录专门用来存放不依赖其它任何包的结构体，因为结构体是一个比较底层的东西。
+
+所谓项目管理，我认为可以比作是建房子，上面的砖头依赖下面的砖头，故下面的砖头不能再去依赖上面的砖头了，难度在于如何划分出哪些代码是下面的砖头。
 

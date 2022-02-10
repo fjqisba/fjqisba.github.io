@@ -2,7 +2,7 @@
 title: "C#加壳工具"
 date: 2021-12-14
 tags: ["加壳"]
-categories: ["C#"]
+categories: ["CSharp"]
 ---
 
 众所周知，自动有了Dnspy这类的反编译工具，C#写的程序如果不加壳，那就差不多把源码送给别人。

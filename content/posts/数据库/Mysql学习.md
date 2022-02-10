@@ -60,6 +60,31 @@ mysql> commit;
 mysql> create database <数据库名>;
 ```
 
+6、Mysql8.0设置远程连接密码
+
+```bash
+mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'mypass@123';
+```
+
+7、Mysql关闭密码策略，分别是Mysq旧版本和新版本两种命令。
+
+```
+mysql> set global validate_password_policy = 0;
+```
+
+```
+mysql> set global validate_password.policy = 0;
+set global validate_password.mixed_case_count = 0;
+set global validate_password.number_count = 0;
+set global validate_password.special_char_count = 0;
+```
+
+8、刷新权限
+
+```bash
+mysql> flush privileges;
+```
+
 
 
 ## MySQL语句

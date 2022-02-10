@@ -11,5 +11,4 @@ categories: ["Linux"]
 
 ​	而Wine可谓是和Cygwin互补，是linux系统下一个用来模拟windows环境的程序。
 
- 
 

@@ -38,7 +38,11 @@ dlv
 
 ### 4、开始调试
 
-1、远程服务器，在项目目录中，运行dlv debug --headless --listen=:2345 --api-version=2
+1、远程服务器，在项目目录中，运行
+
+```sh
+dlv debug --headless --listen=:2345 --api-version=2
+```
 
 2、Goland点击远程调试即可。
 
