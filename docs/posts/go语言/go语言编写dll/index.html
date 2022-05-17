@@ -6,18 +6,18 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Go语言编写DLL - fjqisba的个人博客</title><meta name="Description" content="个人笔记本"><meta property="og:title" content="Go语言编写DLL" />
-<meta property="og:description" content="Go语言编写DLL 测试代码如下 package main import &#34;C&#34; import( &#34;fmt&#34; ) //export Test func Test(){ fmt.Println(&#34;hello&#34;) } func main(){ } 关键点如下: 1、还是必须要有package main和main函数。 2、导出的函" />
+<meta property="og:description" content="Go语言编写DLL 要编写DLL，要用到CGO相关的东西，CGO是基于Mingw编译器的。 编写32位DLL需要安装Mingw，编写64位DLL" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll/" />
 <meta property="article:published_time" content="2021-12-27T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-12-27T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go语言编写DLL"/>
-<meta name="twitter:description" content="Go语言编写DLL 测试代码如下 package main import &#34;C&#34; import( &#34;fmt&#34; ) //export Test func Test(){ fmt.Println(&#34;hello&#34;) } func main(){ } 关键点如下: 1、还是必须要有package main和main函数。 2、导出的函"/>
+<meta name="twitter:description" content="Go语言编写DLL 要编写DLL，要用到CGO相关的东西，CGO是基于Mingw编译器的。 编写32位DLL需要安装Mingw，编写64位DLL"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll/" /><link rel="prev" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99gui%E7%95%8C%E9%9D%A2/" /><link rel="next" href="https://fjqisba.github.io/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll/" /><link rel="prev" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80gui%E7%95%8C%E9%9D%A2/" /><link rel="next" href="https://fjqisba.github.io/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fjqisba.github.io\/posts\/go%E8%AF%AD%E8%A8%80\/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll\/"
-        },"genre": "posts","keywords": "Go, DLL","wordcount":  123 ,
+        },"genre": "posts","keywords": "Go, DLL","wordcount":  221 ,
         "url": "https:\/\/fjqisba.github.io\/posts\/go%E8%AF%AD%E8%A8%80\/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99dll\/","datePublished": "2021-12-27T00:00:00+00:00","dateModified": "2021-12-27T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go语言编写DLL</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw"></i>Go语言</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-27">2021-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 123 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-27">2021-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 221 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -112,6 +112,8 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><h1 id="go语言编写dll">Go语言编写DLL</h1>
+<p>要编写DLL，要用到CGO相关的东西，CGO是基于Mingw编译器的。</p>
+<p>编写32位DLL需要安装Mingw，编写64位DLL则安装Mingw-64，安装后将编译器添加到环境变量中即完成了cgo配置。</p>
 <p>测试代码如下</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
@@ -158,7 +160,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99gui%E7%95%8C%E9%9D%A2/" class="prev" rel="prev" title="Go语言编写GUI界面"><i class="fas fa-angle-left fa-fw"></i>Go语言编写GUI界面</a>
+    <div class="post-nav"><a href="/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80gui%E7%95%8C%E9%9D%A2/" class="prev" rel="prev" title="Go语言编写GUI界面"><i class="fas fa-angle-left fa-fw"></i>Go语言编写GUI界面</a>
             <a href="/posts/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/" class="next" rel="next" title="域名解析">域名解析<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>

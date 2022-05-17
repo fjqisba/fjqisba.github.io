@@ -4,7 +4,14 @@
         <link>https://fjqisba.github.io/categories/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/</link>
         <description>动态调试 - 分类 - fjqisba的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fjqisba@sohu.com (fjqisba)</managingEditor>
-            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Sat, 16 Oct 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/categories/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fjqisba@sohu.com (fjqisba)</webMaster><lastBuildDate>Sat, 19 Feb 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://fjqisba.github.io/categories/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+    <title>x64Dbg常用快捷键和命令</title>
+    <link>https://fjqisba.github.io/posts/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/x64dbg%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%92%8C%E5%91%BD%E4%BB%A4/</link>
+    <pubDate>Sat, 19 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://fjqisba.github.io/posts/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/x64dbg%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%92%8C%E5%91%BD%E4%BB%A4/</guid>
+    <description><![CDATA[dump某一块内存 我们在使用调试器的时候，经常想要dump出某一块内存数据，这时候可以使用savedata命令，示例如下 savedata &quot;D:\1.bin&quot;,0x401000,0x2A0 有三个参数，分别]]></description>
+</item><item>
     <title>x64Dbg插件开发相关</title>
     <link>https://fjqisba.github.io/posts/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/x64dbg%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</link>
     <pubDate>Sat, 16 Oct 2021 00:00:00 &#43;0000</pubDate>

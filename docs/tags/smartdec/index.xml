@@ -10,6 +10,6 @@
     <pubDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/smartdec%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</guid>
-    <description><![CDATA[SmartDec反编译器项目地址:https://github.com/smartdec/smartdec 记录 反编译逻辑入口:void Decompilation::work()]]></description>
+    <description><![CDATA[SmartDec反编译器项目地址:https://github.com/smartdec/smartdec 记录 1、反编译逻辑入口:void Decompilation::work()]]></description>
 </item></channel>
 </rss>

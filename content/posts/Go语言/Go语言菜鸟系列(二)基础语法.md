@@ -38,3 +38,28 @@ c := 3
 d := "4"
 ```
 
+
+
+### Go语言函数参数传递
+
+| 参数类型                             | 参数传递 |
+| ------------------------------------ | -------- |
+| int、string                          | 值传递   |
+| []int、[]string、[]\*int、[]\*string | 指针传递 |
+| map[string]string                    | 指针传递 |
+
+总结来说，go语言仅有的两个容器切片和哈希表是无法拷贝的，测试用例如下:
+
+```go
+func NoCopyMap(testMap map[string]string)  {
+	testMap["111"] = "222"
+}
+
+func main()  {
+	testMap := make(map[string]string)
+	newMap := testMap
+	NoCopyMap(newMap)
+	print(testMap,"=",newMap)
+}
+```
+

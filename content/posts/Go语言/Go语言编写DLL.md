@@ -7,6 +7,12 @@ categories: ["Go语言"]
 
 # Go语言编写DLL
 
+要编写DLL，要用到CGO相关的东西，CGO是基于Mingw编译器的。
+
+编写32位DLL需要安装Mingw，编写64位DLL则安装Mingw-64，安装后将编译器添加到环境变量中即完成了cgo配置。
+
+
+
 测试代码如下
 
 ```go

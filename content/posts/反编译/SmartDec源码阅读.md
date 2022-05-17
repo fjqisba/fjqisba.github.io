@@ -9,5 +9,7 @@ SmartDec反编译器项目地址:https://github.com/smartdec/smartdec
 
 #### 记录
 
-反编译逻辑入口:void Decompilation::work()
+1、反编译逻辑入口:void Decompilation::work()
+
+2、核心反编译函数:UniversalAnalyzer::decompile()
 

@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fjqisba.github.io\/posts\/go%E8%AF%AD%E8%A8%80\/go%E8%AF%AD%E8%A8%80%E8%8F%9C%E9%B8%9F%E7%B3%BB%E5%88%97%E4%BA%8C%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95\/"
-        },"genre": "posts","keywords": "笔记, Go","wordcount":  317 ,
+        },"genre": "posts","keywords": "笔记, Go","wordcount":  444 ,
         "url": "https:\/\/fjqisba.github.io\/posts\/go%E8%AF%AD%E8%A8%80\/go%E8%AF%AD%E8%A8%80%E8%8F%9C%E9%B8%9F%E7%B3%BB%E5%88%97%E4%BA%8C%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95\/","datePublished": "2021-11-09T00:00:00+00:00","dateModified": "2021-11-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go语言菜鸟系列(二)基础语法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw"></i>Go语言</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09">2021-11-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 317 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09">2021-11-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 444 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -115,6 +115,7 @@
     <li>
       <ul>
         <li></li>
+        <li><a href="#go语言函数参数传递">Go语言函数参数传递</a></li>
       </ul>
     </li>
   </ul>
@@ -138,6 +139,40 @@
 <span class="c1">//第二种是类型自动推导
 </span><span class="c1"></span><span class="nx">c</span> <span class="o">:=</span> <span class="mi">3</span>
 <span class="nx">d</span> <span class="o">:=</span> <span class="s">&#34;4&#34;</span>
+</code></pre></div><h3 id="go语言函数参数传递">Go语言函数参数传递</h3>
+<table>
+<thead>
+<tr>
+<th>参数类型</th>
+<th>参数传递</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int、string</td>
+<td>值传递</td>
+</tr>
+<tr>
+<td>[]int、[]string、[]*int、[]*string</td>
+<td>指针传递</td>
+</tr>
+<tr>
+<td>map[string]string</td>
+<td>指针传递</td>
+</tr>
+</tbody>
+</table>
+<p>总结来说，go语言仅有的两个容器切片和哈希表是无法拷贝的，测试用例如下:</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">NoCopyMap</span><span class="p">(</span><span class="nx">testMap</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
+	<span class="nx">testMap</span><span class="p">[</span><span class="s">&#34;111&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;222&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span>  <span class="p">{</span>
+	<span class="nx">testMap</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>
+	<span class="nx">newMap</span> <span class="o">:=</span> <span class="nx">testMap</span>
+	<span class="nf">NoCopyMap</span><span class="p">(</span><span class="nx">newMap</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="nx">testMap</span><span class="p">,</span><span class="s">&#34;=&#34;</span><span class="p">,</span><span class="nx">newMap</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
