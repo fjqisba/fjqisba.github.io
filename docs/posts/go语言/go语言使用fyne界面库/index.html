@@ -17,7 +17,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8fyne%E7%95%8C%E9%9D%A2%E5%BA%93/" /><link rel="prev" href="https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/retdec%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8fyne%E7%95%8C%E9%9D%A2%E5%BA%93/" /><link rel="prev" href="https://fjqisba.github.io/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/retdec%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8/" /><link rel="next" href="https://fjqisba.github.io/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8walk%E7%95%8C%E9%9D%A2%E5%BA%93/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fjqisba.github.io\/posts\/go%E8%AF%AD%E8%A8%80\/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8fyne%E7%95%8C%E9%9D%A2%E5%BA%93\/"
-        },"genre": "posts","keywords": "Go, GUI, Fyne","wordcount":  613 ,
+        },"genre": "posts","keywords": "Go, GUI, Fyne","wordcount":  690 ,
         "url": "https:\/\/fjqisba.github.io\/posts\/go%E8%AF%AD%E8%A8%80\/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8fyne%E7%95%8C%E9%9D%A2%E5%BA%93\/","datePublished": "2022-05-05T00:00:00+00:00","dateModified": "2022-05-05T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": "fjqisba"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go语言使用Fyne界面库</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>fjqisba</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw"></i>Go语言</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-05">2022-05-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 613 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-05">2022-05-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 690 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -146,6 +146,7 @@
 <p>1、Fyne组合框项目过多的时候，界面会卡死。</p>
 <p>Fyne中的Select这一控件，当其中的选项较多的时候(上千个)，界面就卡死了，这是难以接受的。</p>
 <p>2、Fyne为了适配各个平台，做出了很多功能上的牺牲，例如你无法在相对布局中定义控件的最小长度，这样的布局很难满足界面的设计需求。</p>
+<p>3、Fyne程序无法在Windows Server上跑起来，因为服务器显卡驱动永远是OpenGL 1.1且无法升级，而Fyne使用的是OpenGL 2.0以上。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -169,7 +170,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/retdec%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8/" class="prev" rel="prev" title="RetDec反编译器学习"><i class="fas fa-angle-left fa-fw"></i>RetDec反编译器学习</a></div>
+    <div class="post-nav"><a href="/posts/%E5%8F%8D%E7%BC%96%E8%AF%91/retdec%E5%8F%8D%E7%BC%96%E8%AF%91%E5%99%A8/" class="prev" rel="prev" title="RetDec反编译器学习"><i class="fas fa-angle-left fa-fw"></i>RetDec反编译器学习</a>
+            <a href="/posts/go%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8walk%E7%95%8C%E9%9D%A2%E5%BA%93/" class="next" rel="next" title="Go语言使用Walk界面库">Go语言使用Walk界面库<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
