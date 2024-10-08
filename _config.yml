@@ -1,0 +1,120 @@
+
+#基本配置
+title: fjqisba的个人博客
+
+url: "https://fjqisba.github.io"
+email: fjqisba@gmail.com
+locale: "zh-CN"
+description: "fjqisba's blog"
+
+twitter_username: fjqisba
+github_username: fjqisba
+minimal_mistakes_skin: default
+search: true
+
+#作者配置
+author:
+  name   : "fjqisba"
+  avatar : "/assets/images/QQImage.png"
+  bio    : "逆向爱好者"
+  location : "China,ShangHai"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/fjqisba"
+      
+#评论配置
+repository: fjqisba/fjqisba.github.io
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-light"
+    issue_term: "pathname"
+    label: "comment"
+
+# Build settings
+markdown: kramdown
+enable_copy_code_button: true
+remote_theme: mmistakes/minimal-mistakes
+# Outputting
+permalink: /:categories/:title/
+paginate: 10 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+include:
+  - _pages
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+
+
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/fjqisba"
+      
+#页面优化
+compress_html:
+  clippings: all
+  ignore:
+    envs: development  # disable compression in dev environment
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      show_date: true
+      comments: true
+      share: false
+      related: false
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
