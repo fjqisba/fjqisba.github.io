@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fjqisba.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fjqisba">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="加密文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows挂机脚本通用检测方案">
+<meta property="og:url" content="https://fjqisba.github.io/2024/11/28/2024/Windows%E6%8C%82%E6%9C%BA%E8%84%9A%E6%9C%AC%E9%80%9A%E7%94%A8%E6%A3%80%E6%B5%8B%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="fjqisba的个人博客">
+<meta property="og:description" content="加密文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-18T15:55:35.239Z">
+<meta property="article:author" content="fjqisba">
+<meta property="article:tag" content="私密">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Windows挂机脚本通用检测方案 - fjqisba的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fjqisba.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":40,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 45vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>主页</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Windows挂机脚本通用检测方案"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        fjqisba
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-29 00:00" pubdate>
+          2024年11月29日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          84 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          1 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Windows挂机脚本通用检测方案</h1>
+            
+            
+              
+              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="内容错误">
+  <script id="hbeData" type="hbeData" data-hmacdigest="e4e36208da55cbc720635e2e50235881415db7153ad9b3faa9f6971776f7948c">130cd7d9a43abdb57d1d01c3e35779c4cb9140cccf38eff0bbdc63b1f42caa812bbd1dca3ced4a74fed21c24bf8bd0a1a22fcc001b4f10dbdb7cd41b884cc91357a1ef310ed7864eec40540bba9915afd50744bc42c60dc06a504d7e394c541660455c1dd1b536bcb7e149bbe25d5ab6ef001aa82dd8ffa8389e353339b9fd7a62b9c7e95f92b2937b4e4ab3a7045d4946f612ceb710372e7d5b16ecbf70b0f7a43bbf3ac352cf62bd857c7da8b570a1514b068eb132afd12fc7e995a4f5258a4535b4d05af94c84f649378221f5ef2a5d0408938bc21d372a2df45d6e4cd8eebcdff8efc12bb0ee905c5ad38a6c7fb248b5ddabd03e378c03eb3a6d56631fb2c9e1b9863b2a51e4c6dcb9ae964031e0f8b6218adbaf5b8ff215e209d61f18dd3e38d58e01c25ce8ba4b384b85c55f34a8a13fa9b52a7799741687fff8d1026d951f6420c1dd6bf6a98574b8b8f3777a418137db888200c31d7f1f0dbd11446dde5f9a02b908c85b11ca4ca225c4ddf5da34652817aba58af20d7e0cd1a3088fe2ff9a0bab1f0b8141579de985b56f0a9bc749a19473968f2aab505566b2c539c38069941ce346576f37069a08246b836eae041ac4a1a6331da18e724258cdb6da67aa48200734897f085515000475263287b95cb7b25a8ec244e995d3223ad4cd0a5d6dc2b16d595db792be8312b64edccac8f27dfdf663ee4455229e1454c67f1895101aaeadfdcb7c7eb7621a603bde86010e427c6ef5ed6e38fb1da3413564a6e5ff5f24037e4a39905ca7a02523cfb7c4e14530836f692fca153e2ce32214a83eef1b41479adfe6d08f5212587e95b40ebdbdb52e60a717dc5f5d72aa2b1852c7ddbc03f2de8ed49ae706eb8d15dc5b87116ff3e6ead4e4c686d83f9486fd8f4217a476ef337d8baf87b31565fda642719f22d3dd1f39dad65e776646cb02bcf250c3981a33ad718ea6e33ea6e2baac996d7af83a072d6b5416de3499ae4303f3acc5afdaa21a2093dcbc5545a3a53c3f9b6d1e57f389d86e0ea08dbe253c2072f9813fde5fde02a26441cd7692853e975d829b90fc1435f539dcf65e54b645f6216e8bad0cc4d1403377243957840abb2383e059e4225f49848fb2131d3fecf7885b7391c0ffe95bc1581db9127c04eba8b92982c6f479d58763a644d1afffbcbd6cd6ad9489500c89d5f796f4d14430c14d9d62ce40ceeb051d1ca1a9bba3085b15d271b6f83f8abb80a3f2a8bae3842c23765377a288f11e7911abb9291b15ed9e4ca7761702804f9a31b6ca52c1d5feb50be6f62f7b6522641abda489ed4d026d4bddd06238763198bfc25ae882f65693eb1fd5ef87800a50ba86fadd658f9f75d5b4ad79d58dbeb7798f1bd5b7e2a1cf915352f134af0c70e3d4ec62f7b338c714984c8380f8b26037d627754f9d14555fb5077c4e5fb3c1a62b07c307902ddfd9437ec733bd49af5487ebb25687f624c7af48c3f7108209486d3b1c6828aade34bdee6321563efc2498a6563eace22a611776204ccd0907bca2ac2ae81ca4ca619fe4c71d3553c72681f2caf688be1bd2f3b909c82aed133379c318eb216145336ee5443715be9fc33f7ace9a84d082432bfcce629647f2ef456b968f6614044c148e0dd940c28e65774575a926351f3c7b0576eb7435690256e9b16e25df51c2875cc9fb08090e441eebd5bfb097df1b0d7ec3ec8f5cce7cfeead3c70e043ef2dc4ef7574e6ccf6b39e09bd073b44fb36dcf5211795333159185c75bbd91f4f12b3704d6602cc3798ecc34d5e9faa8312dd0d8b3b4956cfe6cd8dab628636663ff665313d63841e2d896fdf8672192fdf78f0731a786d4edf83d115d8726e2d5ce10f8d3bd5cb4ffd4ee1ad12697ea036eff7110fb758948797945722ae2c5f4003ae17e46766adc38c80ff1860c66b06de1c3e91fc6003113af57c68fa6d99d91f200cc5376b0db773386740466ead41a3368f1d77e1f1e9ff06afba096a543c5b95108ce95465767a349da71eabeecb19d997d74f943dbcd2c095d7809bbb06fcfde7a3462e268bb46f57a16999956f7020da405669d6af84367bdd8cf054d3f0e065f375f83d8c97199c31ca8c03976320c819d1dcdd6b0f76c0c54576e45df73125e6443a20704845ee06df7da9763b2e017ea2da5ebe00e620a7fd5cdce3b7648764e322566ebdcc196756ea73c2ccd1c54f873d642b349614acba88e7404a933270c12352fec867cf2a040bafa423162e30ba81aa052b6691ef95a498674af7609432938e12b422872e7f2464aad268ce25427de996d441e4801a99e64aef703822ac3b952cf8e14ed6670127774bf796a8758a9b42882103871dc1e571400b71d6a4b5fe4c7076ed719b5af5271c020705f4b756bee553bec63700958375a1353d52eb7975bfcba9a14346cecef6f460c4c1308dfe6f4d0ac6a27b9d49efc17395a1ed3f9c83d514a6b34fd1246377f08ef1d191789efcf37f09b0c4161de28c860de00852cc6ea63f80265607d795e7c55764d70e5966794dbcfe687e2ee2437accca9f36bade8fba44247eec8a1a5d043f520ae47a146ba499be820687227d80b53101e33bf1bbc242f6e5ad8bab24eec1a94e650fa6d07137b771bfd2b9e935df9a4941579381505919009f69e32272cf0d7771f363ca48e813d272c2aa2f054de8d5d34d0a61477948328c0eac6e4740eec24827636407c589a52e254e12a2ee562767bac86f7be05e26e1a89b73f7dd5d49d0017</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码查看</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+              
+
+              
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%80%86%E5%90%91/" class="category-chain-item">逆向</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%A7%81%E5%AF%86/" class="print-no-link">#私密</a>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Windows挂机脚本通用检测方案</div>
+      <div>https://fjqisba.github.io/2024/11/28/2024/Windows挂机脚本通用检测方案/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>fjqisba</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              MIT
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/12/09/2024/%E5%AE%89%E5%8D%93%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86/" title="安卓设备信息采集">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">安卓设备信息采集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/15/2024/IDAPython%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="IDAPython开发环境搭建">
+                        <span class="hidden-mobile">IDAPython开发环境搭建</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'fjqisba/fjqisba.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comment');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+  <script defer>
+    if (document.getElementById('hbePass') || document.querySelector('hbe-prefix')) {
+      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
+        var hbePrefix = document.querySelector('hbe-prefix');
+        hbePrefix.parentElement.classList.add('markdown-body');
+        Fluid.utils.retry(function() {
+          if (Fluid.boot && Fluid.boot.refresh) {
+            Fluid.boot.refresh();
+            return true;
+          }
+        }, 100, 10);
+      })
+    }
+  </script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
