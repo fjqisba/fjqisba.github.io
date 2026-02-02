@@ -1,0 +1,819 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fjqisba.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fjqisba">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="哎，逆向有的时候也得像开发人员一样去配置一些麻烦的环境。 必备工具Visual Studio，在Visual Studio Installer里面勾选一下使用C++的游戏开发。 Android Studio，最新版就行了 安装UE5安卓开发环境UE4支持32位和64位，而UE5只支持arm64了。 从官网搞个Epic Games Launcher装一装，这里以UE5.4.2为例子，安装的时候点开选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows搭建UE项目环境">
+<meta property="og:url" content="https://fjqisba.github.io/2024/07/08/2024/Windows%E6%90%AD%E5%BB%BAUE%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="fjqisba的个人博客">
+<meta property="og:description" content="哎，逆向有的时候也得像开发人员一样去配置一些麻烦的环境。 必备工具Visual Studio，在Visual Studio Installer里面勾选一下使用C++的游戏开发。 Android Studio，最新版就行了 安装UE5安卓开发环境UE4支持32位和64位，而UE5只支持arm64了。 从官网搞个Epic Games Launcher装一装，这里以UE5.4.2为例子，安装的时候点开选">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-02T15:00:12.247Z">
+<meta property="article:author" content="fjqisba">
+<meta property="article:tag" content="新手教程">
+<meta property="article:tag" content="UE4">
+<meta property="article:tag" content="UE5">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Windows搭建UE项目环境 - fjqisba的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fjqisba.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":40,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="fjqisba的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="fjqisba的个人博客" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 45vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>主页</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Windows搭建UE项目环境"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        fjqisba
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-09 00:00" pubdate>
+          2024年7月9日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Windows搭建UE项目环境</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>哎，逆向有的时候也得像开发人员一样去配置一些麻烦的环境。</p>
+<h2 id="必备工具"><a href="#必备工具" class="headerlink" title="必备工具"></a>必备工具</h2><p>Visual Studio，在Visual Studio Installer里面勾选一下使用C++的游戏开发。</p>
+<p>Android Studio，最新版就行了</p>
+<h2 id="安装UE5安卓开发环境"><a href="#安装UE5安卓开发环境" class="headerlink" title="安装UE5安卓开发环境"></a>安装UE5安卓开发环境</h2><p>UE4支持32位和64位，而UE5只支持arm64了。</p>
+<p>从官网搞个Epic Games Launcher装一装，这里以UE5.4.2为例子，安装的时候点开选项，目标平台记得勾选Android。</p>
+<h3 id="配置Android环境"><a href="#配置Android环境" class="headerlink" title="配置Android环境"></a>配置Android环境</h3><p>进入项目目录C:\Program Files\Epic Games\UE_5.4\Engine\Extras\Android，运行SetupAndroid.bat，运行前也可以先检查下面的环境：</p>
+<p>1、环境变量ANDROID_HOME，值为AndroidSDK根目录</p>
+<p>2、Android Studio中进入设置Android SDK -&gt; SDK Tools，安装Android SDK Command-line Tools(latest)</p>
+<p>没配置JAVA_HOME环境，SetupAndroid.bat脚本默认就会使用Android Studio的jbr环境，就在Android Studio软件目录下面，jbr就是jet brains自己封装的jdk环境，版本比较高，是Java SE 17  (jdk 17.0.10)</p>
+<p>其实SetupAndroid.bat就是下载和当前UE版本适配的platform-tools、Build-Tools、 NDK、CMake这些工具罢了，然后还设置了JAVA_HOME、NDK_ROOT、platform-tools等相关环境变量</p>
+<h3 id="配置UE项目设置"><a href="#配置UE项目设置" class="headerlink" title="配置UE项目设置"></a>配置UE项目设置</h3><p>搞个UE5的Demo，进入项目设置</p>
+<p>平台 -&gt; Android -&gt; 未针对Android平台配置项目 -&gt; 立即配置 -&gt; 接受SDK证书</p>
+<p>平台 -&gt; Android SDK，配置：</p>
+<p>Location of Android SDK，填安卓SDK根目录</p>
+<p>Location of Android NDK，填之前SetupAndroid.bat安装的NDK目录，例如C:\MyLib\AndroidSDK\ndk\25.1.8937393</p>
+<p>Location of JAVA，这里就填jbr目录就行了，例如C:\App\Android Studio\jbr</p>
+<p>SDK API Level ，可以填latest或者matchndk</p>
+<p>NDK API Level，填指定的版本例如android-26，或者填latest</p>
+<p>在测试环境下，也以在项目设置里面勾选Disable verify OBB on first start&#x2F;update选项</p>
+<p>之后就可以成功编译项目了</p>
+<h2 id="安装UE4安卓开发环境"><a href="#安装UE4安卓开发环境" class="headerlink" title="安装UE4安卓开发环境"></a>安装UE4安卓开发环境</h2><p>UE4说不定比UE5更常见，因此也试试安装UE4.26.2</p>
+<h3 id="CodeWorks"><a href="#CodeWorks" class="headerlink" title="CodeWorks"></a>CodeWorks</h3><p>安卓开发可以考虑使用CodeWorks，一键配置环境，可以参考下面的文档</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/InstallingAndroidCodeWorksAndroid/">https://docs.unrealengine.com/4.27/zh-CN/SharingAndReleasing/Mobile/Android/InstallingAndroidCodeWorksAndroid/</a></p>
+<p><a target="_blank" rel="noopener" href="https://ue5wiki.com/wiki/52d36a/">https://ue5wiki.com/wiki/52d36a/</a></p>
+<p>安装之后，环境变量安排得明明白白</p>
+<p>ANDROID_HOME设置为D:\App\NVPACK\android-sdk-windows</p>
+<p>ANDROID_NDK_ROOT设置为D:\App\NVPACK\android-ndk-r18b</p>
+<p>GRADLE_HOME设置为D:\App\NVPACK\gradle-4.4.1</p>
+<p>JAVA_HOME设置为D:\App\NVPACK\jdk1.8.0_77</p>
+<p>NDK_ROOT设置为D:\App\NVPACK\android-ndk-r18b</p>
+<p>NDKROOT设置为D:\App\NVPACK\android-ndk-r18b</p>
+<p>NVPACK_NDK_TOOL_VERSION设置为4.9</p>
+<p>NVPACK_NDK_VERSION设置为android-ndk-r18b</p>
+<p>NVPACK_ROOT设置为D:\App\NVPACK</p>
+<p>Path路径添加</p>
+<p>D:\App\NVPACK\android-sdk-windows\extras\android\support</p>
+<p>D:\App\NVPACK\android-sdk-windows\build-tools</p>
+<p>D:\App\NVPACK\android-sdk-windows\platform-tools</p>
+<p>D:\App\NVPACK\android-sdk-windows\tools</p>
+<p>D:\App\NVPACK\gradle-4.4.1\bin</p>
+<p>D:\App\NVPACK\jdk1.8.0_77\bin</p>
+<p>你只需要自行改一改ndk版本就行了，不使用CodeWorks，那就自行配置，接着往下看</p>
+<h3 id="配置Android环境-1"><a href="#配置Android环境-1" class="headerlink" title="配置Android环境"></a>配置Android环境</h3><p>需要注意的是UE4.26.2正常情况下不能用太高的JDK版本，这是因为UE4.26.2使用的gradle是版本是6.1.1，而这个版本的gradle对应的jdk版本号是1.8.0_77，因此去官网<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html%EF%BC%8C%E6%90%9E%E4%B8%80%E4%B8%AAjdk-8u77-windows-x64.exe%E4%B9%8B%E7%B1%BB%E7%9A%84%E5%B0%B1%E8%A1%8C%E4%BA%86">https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html，搞一个jdk-8u77-windows-x64.exe之类的就行了</a></p>
+<p>进入项目目录C:\Program Files\Epic Games\UE_4.26\Engine\Extras\Android，运行SetupAndroid.bat，运行前也可以先检查下面的环境：</p>
+<p>1、环境变量ANDROID_HOME，值为AndroidSDK根目录</p>
+<p>2、Android Studio中进入设置Android SDK -&gt; SDK Tools，安装Android SDK Command-line Tools(latest)</p>
+<p>对于现在的SetupAndroid.bat来说，得改点东西，sdkmanager.bat位置变了，将脚本里面的</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> <span class="hljs-attribute">SDKMANAGER</span>=%STUDIO_SDK_PATH%\tools\bin\sdkmanager.bat<br></code></pre></td></tr></table></figure>
+
+<p>修改为</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> <span class="hljs-attribute">SDKMANAGER</span>=%STUDIO_SDK_PATH%\cmdline-tools\latest\bin\sdkmanager.bat<br></code></pre></td></tr></table></figure>
+
+<p>运行之后脚本就给你配好了platform-tools、build-tools;28.0.3、ndk;21.4.7075529(注意版本号)，还帮你设置好了环境变量JAVA_HOME。。。然而这个环境变量是错的，因为JBR版本太高了</p>
+<h3 id="配置UE项目设置-1"><a href="#配置UE项目设置-1" class="headerlink" title="配置UE项目设置"></a>配置UE项目设置</h3><p>搞个UE4的Demo，进入项目设置</p>
+<p>平台 -&gt; Android -&gt; 未针对Android平台配置项目 -&gt; 立即配置 -&gt; 接受SDK证书</p>
+<p>平台 -&gt; Android SDK，配置：</p>
+<p>Location of Android SDK，填安卓SDK根目录</p>
+<p>Location of Android NDK，填之前SetupAndroid.bat安装的NDK目录，例如C:\MyLib\AndroidSDK\ndk\21.4.7075529</p>
+<p>Location of JAVA，得填旧版本的JDK目录，例如C:\MyLib\Java\jdk1.8.0_77</p>
+<p>SDK API Level ，可以填android-30</p>
+<p>NDK API Level，可以填android-21</p>
+<p>在测试环境下，也以在项目设置里面勾选 <strong>禁用首次开始&#x2F;更新时验证OBB</strong> 选项</p>
+<hr>
+<p>之后就可以编译项目了，如果是在下载gradle的时候遇到问题，如下所示:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Downloading https:<span class="hljs-comment">//services.gradle.org/distributions/gradle-6.1.1-all.zip</span><br>Exception <span class="hljs-keyword">in</span> thread <span class="hljs-string">&quot;main&quot;</span> javax<span class="hljs-selector-class">.net</span><span class="hljs-selector-class">.ssl</span><span class="hljs-selector-class">.SSLHandshakeException</span>: sun<span class="hljs-selector-class">.security</span><span class="hljs-selector-class">.validator</span><span class="hljs-selector-class">.ValidatorException</span>: PKIX <span class="hljs-selector-tag">path</span> building failed: sun<span class="hljs-selector-class">.security</span><span class="hljs-selector-class">.provider</span><span class="hljs-selector-class">.certpath</span><span class="hljs-selector-class">.SunCertPathBuilderException</span>: unable to find valid certification <span class="hljs-selector-tag">path</span> to requested target<br></code></pre></td></tr></table></figure>
+
+<p>这大概率还是坑爹的JDK惹出来的麻烦，可以考虑先将JAVA_HOME切换成JBR，再去执行gradlew.bat，让新版本的JDK去安装gradle，下完了之后再将JAVA_HOME切回旧版本，为什么可以这么做呢，因为gradle一般都是系统全局共享的。。。</p>
+<hr>
+<p>如果是gradle在下载jar包的时候依旧网络出错，类似于下面这种</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Could</span> not resolve <span class="hljs-literal">all</span> artifacts for configuration &#x27;:classpath&#x27;.<br><span class="hljs-attribute">Could</span> not resolve org.jetbrains.kotlin:kotlin-stdlib-jdk8:<span class="hljs-number">1</span>.<span class="hljs-number">3</span>.<span class="hljs-number">72</span>.<br><span class="hljs-attribute">Could</span> not resolve org.ow2.asm:asm:<span class="hljs-number">7</span>.<span class="hljs-number">0</span>.<br></code></pre></td></tr></table></figure>
+
+<p>去浏览器访问<a target="_blank" rel="noopener" href="https://jcenter.bintray.com,拿到根证书digicert/">https://jcenter.bintray.com，拿到根证书DigiCert</a> Global Root G2.crt，执行下面的命令</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">cd</span> C:\MyLib\Java\jdk1.<span class="hljs-number">8.0</span>_77\jre\lib\security<br>keytool -importcert -<span class="hljs-keyword">file</span> <span class="hljs-string">&quot;D:\DigiCert Global Root G2.crt&quot;</span> -keystore cacerts -storepass changeit -noprompt -alias jcenter.bintray.<span class="hljs-keyword">com</span><br></code></pre></td></tr></table></figure>
+
+<p>之后如果你的飞机网络如果正常的话，应该就能下载jar包了。。。</p>
+<hr>
+<p>如果在编译的时候出现dx.bat这种奇怪的东东，那么很明显是Build-tool对不上，因为UE4.26.2只支持29.0.2左右版本的编译工具链</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">Build</span>-tool <span class="hljs-number">35.0</span><span class="hljs-number">.0</span> <span class="hljs-keyword">is</span> <span class="hljs-literal">missing</span> DX at C:\MyLib\AndroidSDK\<span class="hljs-keyword">build</span>-tools\<span class="hljs-number">35.0</span><span class="hljs-number">.0</span>\dx.bat<br></code></pre></td></tr></table></figure>
+
+<p>额，目前找到的办法是删掉高版本的C:\MyLib\AndroidSDK\build-tools</p>
+<hr>
+<p>都这样了用UE编译还是出错的话，建议用Android Studio加载Intermediate目录下面的安卓项目，然后记得去设置里面将gradle JDK切换成低版本的jdk 1.8.0_77，等待Android Studio编译成功后，执行下面的操作：</p>
+<p>Android Studio 中的Build 选项 -&gt; Clean project</p>
+<p>Android Studio 中的File 选项 -&gt; Invalidate caches…</p>
+<p>这个时候再切换到UE去编译，或许就可以继续往下走了</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="http://www.qxzx.xyz/posts/tech/android-gradle-setting/">http://www.qxzx.xyz/posts/tech/android-gradle-setting/</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%80%86%E5%90%91/" class="category-chain-item">逆向</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" class="print-no-link">#新手教程</a>
+      
+        <a href="/tags/UE4/" class="print-no-link">#UE4</a>
+      
+        <a href="/tags/UE5/" class="print-no-link">#UE5</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Windows搭建UE项目环境</div>
+      <div>https://fjqisba.github.io/2024/07/08/2024/Windows搭建UE项目环境/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>fjqisba</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年7月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              MIT
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/08/03/2024/BinaryNinja%E6%8F%92%E4%BB%B6%E7%83%AD%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="BinaryNinja插件热开发环境搭建">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">BinaryNinja插件热开发环境搭建</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/07/07/2024/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BARoot%E6%95%99%E7%A8%8B/" title="安卓手机Root教程">
+                        <span class="hidden-mobile">安卓手机Root教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'fjqisba/fjqisba.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comment');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
